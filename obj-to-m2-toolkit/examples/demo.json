@@ -1,0 +1,31 @@
+{
+  "patch_name": "patch-enGB-T.MPQ",
+  "models": [
+    {
+      "obj": "assets/demo-trunk.obj",
+      "texture": "assets/demo-basecolor.png",
+      "model_path": "World/CustomTrees/DemoTrunk.m2",
+      "texture_path": "World/CustomTrees/DemoTrunk.blp",
+      "up_axis": "Z",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        2,
+        1,
+        3
+      ],
+      "extend_foot": 0.03,
+      "lower_z": 0.25,
+      "texture_size": 16,
+      "ue_dark_pixel_guard": true,
+      "collision": {
+        "mode": "tree",
+        "top_fraction": 0.4,
+        "sample_floor_fraction": 0.0005
+      }
+    }
+  ]
+}

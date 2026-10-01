@@ -1,0 +1,38 @@
+[
+  {
+    "source": "big-white-oak-tree-less-canopy-3d-model.obj",
+    "source_sha256": "9e2d86dafbdd2914f697a2bc5498771a3fde9bce593257595d7c5b3173d08844",
+    "replacement": "World\\Azeroth\\Elwynn\\PassiveDoodads\\Trees\\CanopylessTree01.m2",
+    "triangles": 5499,
+    "exported_vertices": 5690,
+    "scale_xyz": [
+      84.07049608311607,
+      84.07049608311607,
+      84.07049608311607
+    ],
+    "height": 82.55420994758606,
+    "width": 42.93834911573613,
+    "root_depth": 1.6510841989517213,
+    "collision_top": 24.766262984275816,
+    "collision_triangles": 2304,
+    "collision_closed": true
+  },
+  {
+    "source": "extreme-oak-tree-3d-model.obj",
+    "source_sha256": "6525788a058d4b1c619068508220aa0f04dfbc4e2e39dd492a872d9d3460c582",
+    "replacement": "World\\Azeroth\\Elwynn\\PassiveDoodads\\Trees\\ElwynnTreeCanopy04.m2",
+    "triangles": 19801,
+    "exported_vertices": 14051,
+    "scale_xyz": [
+      53.70705674877287,
+      53.70705674877287,
+      141.54217179628336
+    ],
+    "height": 82.90031003952026,
+    "width": 52.667924880981445,
+    "root_depth": 1.6580062007904053,
+    "collision_top": 14.922055807113647,
+    "collision_triangles": 1664,
+    "collision_closed": true
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "converter_repository": "https://github.com/stefanw1337/OBJtoM2",
+  "converter_commit": "eedf5a6c9f57b79c295ef12c80c40bc8edc15a0a",
+  "upstream": "https://github.com/bollafa/OBJtoM2",
+  "mpqeditor_origin": "User-provided local executable; official site https://www.zezula.net/en/mpq/download.html",
+  "asset_origin": "User-provided custom tree conversions; source assets not bundled",
+  "publication_status": "Local handoff, redistribution license review incomplete"
+}

@@ -1,0 +1,196 @@
+{
+  "models": [
+    {
+      "path": "world/azeroth/elwynn/passivedoodads/trees/canopylesstree01.m2",
+      "vertices": 5690,
+      "triangles": 5499,
+      "collision_triangles": 2304,
+      "bounds_min": [
+        -18.22417640686035,
+        -19.896209716796875,
+        -1.6510841846466064
+      ],
+      "bounds_max": [
+        24.714174270629883,
+        19.581104278564453,
+        82.55420684814453
+      ]
+    },
+    {
+      "path": "world/azeroth/elwynn/passivedoodads/trees/elwynntreecanopy01.m2",
+      "vertices": 5631,
+      "triangles": 5497,
+      "collision_triangles": 1920,
+      "bounds_min": [
+        -32.58906555175781,
+        -32.159908294677734,
+        -1.5608808994293213
+      ],
+      "bounds_max": [
+        32.719154357910156,
+        32.15876388549805,
+        47.44404602050781
+      ]
+    },
+    {
+      "path": "world/azeroth/elwynn/passivedoodads/trees/elwynntreecanopy02.m2",
+      "vertices": 4972,
+      "triangles": 5623,
+      "collision_triangles": 1536,
+      "bounds_min": [
+        -25.879541397094727,
+        -20.610607147216797,
+        -1.3446953296661377
+      ],
+      "bounds_max": [
+        25.956012725830078,
+        25.78108024597168,
+        46.83476257324219
+      ]
+    },
+    {
+      "path": "world/azeroth/elwynn/passivedoodads/trees/elwynntreecanopy04.m2",
+      "vertices": 14051,
+      "triangles": 19801,
+      "collision_triangles": 1664,
+      "bounds_min": [
+        -27.46830940246582,
+        -23.45213508605957,
+        -5.316012382507324
+      ],
+      "bounds_max": [
+        25.199615478515625,
+        24.1512508392334,
+        79.24230194091797
+      ]
+    },
+    {
+      "path": "world/azeroth/elwynn/passivedoodads/trees/elwynntreemid01.m2",
+      "vertices": 6871,
+      "triangles": 5626,
+      "collision_triangles": 2176,
+      "bounds_min": [
+        -3.838501453399658,
+        -3.580622911453247,
+        -0.17352420091629028
+      ],
+      "bounds_max": [
+        3.744831085205078,
+        3.577671527862549,
+        8.676210403442383
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "world/customtrees/big+oak+tree+3d+model_basecolor.blp",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    },
+    {
+      "path": "world/customtrees/big-white-oak-tree-less-canopy-3d-model_basecolor.blp",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    },
+    {
+      "path": "world/customtrees/extreme-oak-tree-3d-model_basecolor.blp",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    },
+    {
+      "path": "world/customtrees/medium+big+oak+tree+3d+model_basecolor.blp",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    },
+    {
+      "path": "world/customtrees/smaller+oak+tree+3d+model_basecolor.blp",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    }
+  ],
+  "files": [
+    {
+      "path": "World/CustomTrees/big+oak+tree+3d+model_basecolor.blp",
+      "bytes": 2797388,
+      "sha256": "c37c39da626fc133ce2acbac474c6e1ff84b2e4de4dd85cb5ebfa9b0afad0d46"
+    },
+    {
+      "path": "World/CustomTrees/big-white-oak-tree-less-canopy-3d-model_basecolor.blp",
+      "bytes": 2797388,
+      "sha256": "509cb1a00f2f32911a7b4e1d470221e69ef265bc102f5f995ea32e34da23cc5d"
+    },
+    {
+      "path": "World/CustomTrees/extreme-oak-tree-3d-model_basecolor.blp",
+      "bytes": 2797388,
+      "sha256": "c9d005e94a544d961efd40b7eb689bcb19c4f3186440774581f829e6bc761fa4"
+    },
+    {
+      "path": "World/CustomTrees/medium+big+oak+tree+3d+model_basecolor.blp",
+      "bytes": 2797388,
+      "sha256": "8098346a0ccd2123cb67b019d0f03f69c310174624ab50b552e2649281d16f4f"
+    },
+    {
+      "path": "World/CustomTrees/smaller+oak+tree+3d+model_basecolor.blp",
+      "bytes": 2797388,
+      "sha256": "cf04bc31ba23babfd298dfcff217a1730ba10bd1718417249e6bf0b667eef7ee"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/CanopylessTree01.m2",
+      "bytes": 330204,
+      "sha256": "6503cc50c5633a9437303d7f19360c2b028268e7ba5c4d659db8bcfe8496858f"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/CanopylessTree0100.skin",
+      "bytes": 67254,
+      "sha256": "7233b5d54f2f3ec906508e2b9acc6af9e26b05071de0ecea3ee38f7c5c74d6e3"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/ElwynnTreeCanopy01.m2",
+      "bytes": 318099,
+      "sha256": "274f03b831c61fb2415cb46a2585558898273b0d09e7a56c5adf5fec5f87e423"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/ElwynnTreeCanopy0100.skin",
+      "bytes": 66888,
+      "sha256": "505d70c87104c059fe2544181cabb013779238d1bc21571754eac76fbfff6e4a"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/ElwynnTreeCanopy02.m2",
+      "bytes": 277258,
+      "sha256": "d8fd17f4d326889b0af20d5298d56053dbcd8c627d62f23129cf4816e73b5f7c"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/ElwynnTreeCanopy0200.skin",
+      "bytes": 63690,
+      "sha256": "fa8e6f7be2f47131a2abed175cd807a736826b74004bbfc2dc4e25bc916a13f7"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/ElwynnTreeCanopy04.m2",
+      "bytes": 716160,
+      "sha256": "4f73eb0f467b03d3ce9ce3f7888618c1986dc2fb77a4014c2a968e5e3b7e8e0c"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/ElwynnTreeCanopy0400.skin",
+      "bytes": 203232,
+      "sha256": "ea8ae870adf0c31961c57fec02a82f4b74a5336a9b36221d1b8ad6d614e8c9a2"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/ElwynnTreeMid01.m2",
+      "bytes": 383764,
+      "sha256": "b4461e0bd7f6e8935dea42b149f55be38a3ac907cd3eb0d2b35926f7863f406b"
+    },
+    {
+      "path": "World/Azeroth/Elwynn/PassiveDoodads/Trees/ElwynnTreeMid0100.skin",
+      "bytes": 75102,
+      "sha256": "44e346eaa6236304284d03c4a2c333d23db9fea3eb9df3661eb44c5a628693c3"
+    }
+  ],
+  "mpq_sha256": "ab62be97db50d47172f5a5f67e18fe7cdb4a271a5a32e702a00b07c3a87e15bc",
+  "archive_members_verified": 15,
+  "client_test": "Not established by file validation"
+}

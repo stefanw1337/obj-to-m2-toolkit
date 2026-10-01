@@ -1,0 +1,13 @@
+{
+  "models": [
+    {
+      "model": "ElwynnTreeCanopy04",
+      "z_translation": -2.0,
+      "visual_collision_and_bounds_shifted": true
+    }
+  ],
+  "textures_and_other_four_trees_unchanged": true,
+  "files_verified": 15,
+  "client_test": "Pending in both clients; existing placement scaling also scales the lowering distance; steep slopes may still require root underside changes",
+  "sha256": "ab62be97db50d47172f5a5f67e18fe7cdb4a271a5a32e702a00b07c3a87e15bc"
+}
