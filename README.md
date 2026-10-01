@@ -6,11 +6,11 @@ This kit was assembled on 2026-10-01. It creates output files; it does not insta
 
 ## Start here
 
-- Human walkthrough: [Conversion guide](docs/GUIDE.md)
-- AI handoff: [AI instructions](AI_INSTRUCTIONS.md)
-- Known issues and tested fixes: [Compatibility notes](docs/COMPATIBILITY.md)
-- Example archive and test status: [Proof of concept](proof-of-concept/README.md)
-- Attribution and publication status: [Third-party notices](THIRD_PARTY_NOTICES.md)
+- Human walkthrough: [Conversion guide](obj-to-m2/docs/GUIDE.md)
+- AI handoff: [AI instructions](obj-to-m2/AI_INSTRUCTIONS.md)
+- Known issues and tested fixes: [Compatibility notes](obj-to-m2/docs/COMPATIBILITY.md)
+- Example archive and test status: [Proof of concept](obj-to-m2/proof-of-concept/README.md)
+- Attribution and publication status: [Third-party notices](obj-to-m2/THIRD_PARTY_NOTICES.md)
 
 ## Requirements
 
