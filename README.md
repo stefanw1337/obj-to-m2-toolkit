@@ -29,3 +29,5 @@ Use a fresh output directory. Original source files and game archives are not mo
 The five-tree example archive and unpacked assets remain unchanged as proof of concept. The conversion core has no tree-specific functions. Animated models belong in the separate WoW Model Toolkit.
 
 Current limits include one texture/material and one SKIN section per model, 21,845 triangles and 65,535 exported vertices. New assets still need testing in the target game client. See the documentation for full scope and migration details.
+
+Retired converter source, executable and helper files are preserved under [legacy/](legacy/README.md), with original content and credits intact.
