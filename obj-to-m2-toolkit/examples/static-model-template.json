@@ -1,0 +1,15 @@
+{
+  "patch_name": "patch-S.MPQ",
+  "models": [{
+    "obj": "model.obj",
+    "texture": "diffuse.png",
+    "model_path": "World/Custom/Model.m2",
+    "texture_path": "World/Custom/Model.blp",
+    "up_axis": "Z",
+    "scale": [1,1,1],
+    "origin": [0,0,0],
+    "offset": [0,0,0],
+    "collision": {"mode": "none"},
+    "material": {"blend": "opaque", "two_sided": false}
+  }]
+}

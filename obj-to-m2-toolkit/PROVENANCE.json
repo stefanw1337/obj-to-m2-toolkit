@@ -1,8 +1,15 @@
 {
-  "converter_repository": "https://github.com/stefanw1337/OBJtoM2",
-  "converter_commit": "eedf5a6c9f57b79c295ef12c80c40bc8edc15a0a",
-  "upstream": "https://github.com/bollafa/OBJtoM2",
-  "mpqeditor_origin": "User-provided local executable; official site https://www.zezula.net/en/mpq/download.html",
-  "asset_origin": "User-provided custom tree conversions; source assets not bundled",
-  "publication_status": "Local handoff, redistribution license review incomplete"
+  "current_pipeline": "Python static OBJ importer and MD20 v264/SKIN writer",
+  "legacy_converter": {
+    "author": "Garthog",
+    "repository": "https://github.com/stefanw1337/OBJtoM2",
+    "commit": "eedf5a6c9f57b79c295ef12c80c40bc8edc15a0a",
+    "upstream_mirror": "https://github.com/bollafa/OBJtoM2",
+    "runtime_dependency": false,
+    "preserved_in": "Git history and local pre-upgrade backup"
+  },
+  "subsequent_work": "Generalized static pipeline, Python serialization, collision modes, alpha materials, validation and documentation developed with Codex assistance",
+  "mpqeditor": "Ladislav Zezula; existing bundled executable",
+  "proof_of_concept": "Existing 15-member archive and unpacked assets preserved unchanged",
+  "license": "No new blanket license assigned; preserve applicable upstream notices"
 }

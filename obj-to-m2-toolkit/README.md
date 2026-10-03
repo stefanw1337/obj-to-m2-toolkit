@@ -1,85 +1,107 @@
-# OBJ to M2 Tree Toolkit
+# OBJ-to-M2 Toolkit - Static Models
 
-A local Windows handoff kit for converting **static, opaque, triangulated OBJ props** into WoW 3.3.5a M2 version 264, SKIN, BLP2 textures and a verified MPQ. Includes our five-tree replacement archive as a proof of concept.
+Start here: [AI handoff](AI_INSTRUCTIONS.md) | [Credits and project lineage](CREDITS.md).
 
-This kit was assembled on 2026-10-01. It creates output files; it does not install patches, launch clients, modify an Unreal project, change original game archives, or publish to GitHub.
+Original OBJtoM2 converter credit: **Garthog**, with the original contributors listed in CREDITS.md. The current Python writer is a later implementation; the project is not entirely original work by the user.
 
-## Start here
+Convert static, triangulated OBJ models into World of Warcraft 3.3.5a M2 version 264,
+SKIN, BLP2 textures and an additive MPQ. Suitable for props, furniture, rocks, vegetation,
+statues, decorations and other static geometry. No asset-specific deformation or collision
+fitting is applied. Blender is not required for this static conversion workflow.
 
-- Human walkthrough: [Conversion guide](docs/GUIDE.md)
-- AI handoff: [AI instructions](AI_INSTRUCTIONS.md)
-- Known issues and tested fixes: [Compatibility notes](docs/COMPATIBILITY.md)
-- Example archive and test status: [Proof of concept](proof-of-concept/README.md)
-- Attribution and publication status: [Third-party notices](THIRD_PARTY_NOTICES.md)
+## Setup
 
-## Requirements
-
-Windows, Python 3.14 (the version used for validation), and the packages in `requirements.txt`. The converter and MPQEditor executables are bundled for this local kit. Python itself is not bundled. Blender is optional for viewing models and generating previews; CMake and Visual Studio C++ tools are only needed to rebuild the converter. If the converter reports missing Microsoft runtime DLLs, install Microsoft's supported Visual C++ Redistributable from its official site.
-
-From PowerShell in this folder:
-
-```powershell
-.\setup.ps1
-.\.venv\Scripts\python.exe scripts\pipeline.py --help
-```
-
-`setup.ps1` creates a local virtual environment and downloads the pinned Python packages using pip. If script execution is restricted, run these commands directly instead of changing your system policy:
+Windows and Python 3.14 were used for validation.
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe scripts/pipeline.py build examples/demo.json --out builds/demo-001
 ```
 
-Dependencies are pinned to the versions used here. Installation on a clean machine and availability of matching wheels are not verified by the included tests.
+`setup.ps1` performs the two setup steps. MPQEditor is supplied for local archive creation;
+see `THIRD_PARTY_NOTICES.md`. Inputs and existing MPQs are never changed by a build.
+Use a new output directory each time.
 
-## Run a complete synthetic example
+## Configure any static model
+
+Copy `examples/static-model-template.json`, set the OBJ and diffuse texture paths, and
+choose unique archive paths. Input paths are relative to the JSON configuration.
+Multiple model entries can be combined into one MPQ. Each model uses one texture/material.
+
+- `up_axis`: `Y` or `Z`; output is Z-up.
+- `origin`: point to subtract after converting the source coordinates to Z-up.
+- `scale`: positive scalar or three positive axis scales.
+- `rotation_z_degrees`: optional rotation after scaling.
+- `offset`: final translation in output coordinates.
+- `flip_v`: true by default to convert OBJ UV coordinates to M2 convention.
+- Normals are preserved when supplied; missing normals become flat face normals.
+- Planar models are valid when collision is disabled.
+
+## Optional collision
+
+- `none`: default; no collision triangles are generated.
+- `box`: a generic axis-aligned box around the transformed visible geometry.
+- `mesh`: a supplied triangulated collision OBJ, transformed exactly like the visible mesh.
+- `prepared_obj`: a supplied collision OBJ already in final output coordinates.
+
+No automatic shape assumptions are made. A detailed model can use a deliberately simpler
+collision mesh. A planar model cannot use `box` collision because a closed box needs
+nonzero dimensions on every axis.
+
+## Materials and textures
+
+`material.blend` supports `opaque`, `cutout`, `alpha`, or `additive`. Optional `two_sided`
+and `unlit` flags are available. Images must have power-of-two dimensions, at most 4096.
+Their size is preserved and full mip chains are generated. Opaque surfaces use BC1;
+alpha surfaces use BC3. Transparency is not silently discarded in alpha modes.
+
+## Commands
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\pipeline.py build examples\demo.json --out builds\demo-001
+python scripts/pipeline.py inspect model.obj
+python scripts/pipeline.py build model.json --out builds/model-001
+python scripts/pipeline.py measure builds/model-001/archive/World/Custom/Model.m2
+python scripts/pipeline.py validate builds/model-001/archive
+python scripts/pipeline.py verify builds/model-001/patch-S.MPQ builds/model-001/archive
+python scripts/pipeline.py pack builds/model-001/archive builds/repacked.MPQ
+python scripts/pipeline.py blp diffuse.png diffuse.blp --blend cutout
+python tests/test_static.py
 ```
 
-This generates a small test trunk with a 16px texture, its closed collision proxy, M2/SKIN files, an MPQ and validation reports. It uses `World/CustomTrees/DemoTrunk.m2`, which is not automatically placed in the WoW world. It is a tool smoke test, not another tree replacement.
+## Working example archives
 
-## Verify or repack our actual proof of concept
+The existing five-tree proof of concept is retained unchanged in `proof-of-concept/`,
+including its MPQ, unpacked assets and historical validation reports. These are examples
+of static models, not special conversion modes. To verify or repack the existing assets:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\pipeline.py verify proof-of-concept\patch-enGB-T.MPQ proof-of-concept\archive
-.\.venv\Scripts\python.exe scripts\pipeline.py pack proof-of-concept\archive builds\repacked\patch-enGB-T.MPQ
+python scripts/pipeline.py verify proof-of-concept/patch-enGB-T.MPQ proof-of-concept/archive
+python scripts/pipeline.py pack proof-of-concept/archive builds/example-repacked.MPQ
 ```
 
-Repacking preserves member bytes. MPQ container bytes may differ because of archive metadata or tool behavior. Compare extracted members and the generated reports rather than expecting identical container hashes after repacking.
+The original source models are not bundled, so these commands repack the already converted
+assets. Historical fitting notes describe that example's provenance and are not current
+configuration templates. Model generation now uses the generic options above.
 
-## Convert a new tree
+## Compatibility and scope
 
-Copy `examples/tree-template.json` alongside your OBJ and base-color image, edit the file names, target archive paths, transforms and collision settings, then:
+The previous `models` configuration structure and command names are retained. Replace
+old geometry-specific options with explicit `offset` and a generic collision choice.
+Use source image dimensions instead of the old `texture_size` override. The old special
+dark-pixel adjustment is not part of the default pipeline; provide a prepared texture
+if another renderer needs color corrections.
 
-```powershell
-.\.venv\Scripts\python.exe scripts\pipeline.py inspect "D:\MyTrees\oak.obj"
-.\.venv\Scripts\python.exe scripts\pipeline.py build "D:\MyTrees\tree.json" --out builds\oak-001
-```
+Current limits: 21,845 triangles and 65,535 exported vertices per model, one texture/material
+and one SKIN section. UV seams and hard edges can increase exported vertex count. Models
+must be triangulated, with UVs on every visible face corner. Concave polygon triangulation,
+PBR material conversion, interior/portal systems and WMO export are outside this toolkit.
+Large buildings can require a WMO workflow even though their geometry is static.
 
-Input file paths are relative to the configuration file. Output directories must be new. Multiple objects can be listed in `models` to create one combined MPQ. Read the guide before choosing transforms or model paths; a screenshot does not establish an exact world model path.
+Animated NPCs belong in the companion WoW Model Toolkit. The user confirmed its Northshire
+zombie MPQ working in WoW on 2026-10-03. That confirmation does not establish runtime
+compatibility for every new static asset. Test new MPQs in the target client.
 
-## Included tools
-
-| Item | Purpose |
-|---|---|
-| `tools/OBJtoM2.exe` | Fixed Wrath converter, compiled from the bundled source snapshot |
-| `tools/MPQEditor.exe` | Create MPQ archives |
-| `scripts/pipeline.py` | Inspect, transform, convert, validate, pack and verify |
-| `scripts/textures.py` | Opaque BLP2/BC1 mip chain and optional UE dark-pixel workaround |
-| `scripts/new_tree_collision.py` | Sample a trunk/root collision proxy |
-| `scripts/trunk_sections.py` | Cross-section helper |
-| `converter-source/` | Converter source and its binary round-trip tests |
-| `proof-of-concept/` | Latest MPQ, exact unpacked members, inventory and known test status |
-
-The Python scripts are the reusable workflow. They do not depend on the original chat or any `E:\WowUnreal` path. Original Blender files, source tree assets, Blizzard models and base game archives are not included.
-
-## Tests
-
-```powershell
-.\.venv\Scripts\python.exe tests\test_pipeline.py
-.\.venv\Scripts\python.exe converter-source\tests\test_conversion.py tools\OBJtoM2.exe
-```
-
-File checks do not prove runtime rendering or gameplay behavior. Each new package needs testing in the actual target clients. This kit's validator intentionally accepts the restricted static/opaque output produced here; it is not a universal M2 or MPQ validator.
+Build reports cover model structure, sampled static pose reconstruction, collision data
+and byte-exact MPQ extraction. Install a generated MPQ as a separate archive; never replace
+an original game archive. This toolkit does not automatically install builds.

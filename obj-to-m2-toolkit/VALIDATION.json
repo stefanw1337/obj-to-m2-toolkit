@@ -1,24 +1,8 @@
 {
-  "date": "2026-10-01",
-  "python": "3.14.5",
-  "platform": "Windows-10-10.0.19045-SP0",
-  "pipeline_tests": 4,
-  "pipeline_tests_result": "passed",
-  "converter_roundtrip_tests": 13,
-  "converter_roundtrip_tests_result": "passed",
-  "poc_members_verified": 15,
-  "poc_sha256": "ab62be97db50d47172f5a5f67e18fe7cdb4a271a5a32e702a00b07c3a87e15bc",
-  "clean_machine_dependency_install": "not tested",
-  "latest_poc_client_test": "pending",
-  "checks": [
-    "Synthetic OBJ to M2/SKIN/BLP to MPQ round trip",
-    "Archive repacking with exact member byte verification",
-    "Nonuniform scaling and lowering bounds",
-    "Opaque alpha rejection",
-    "Unsafe member path rejection",
-    "Corrupt SKIN rejection",
-    "Dark-pixel guard",
-    "Existing MPQ overwrite rejection",
-    "Raw M2 dimension measurement"
-  ]
+  "unit_tests": "3 passed (including four collision modes, planar alpha geometry, negative indices and invalid-input rejection)",
+  "example_mpq_members_verified": 15,
+  "existing_example_mpq_sha256": "ab62be97db50d47172f5a5f67e18fe7cdb4a271a5a32e702a00b07c3a87e15bc",
+  "blender_required": false,
+  "static_runtime": "Requires testing each new model in the target client",
+  "companion_zombie_runtime": "User confirmed working in WoW on 2026-10-03"
 }
