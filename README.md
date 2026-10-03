@@ -1,4 +1,4 @@
-# OBJ to M2 Tree Toolkit
+# OBJ to M2 Static objects Toolkit
 
 A local Windows handoff kit for converting **static, opaque, triangulated OBJ props** into WoW 3.3.5a M2 version 264, SKIN, BLP2 textures and a verified MPQ. Includes our five-tree replacement archive as a proof of concept.
 
